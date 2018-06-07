@@ -5,7 +5,7 @@
   </a>
   <div class="product-container">
     <div class="product-image-container">
-      <img [src]="product?.imageURL ? product?.imageURL : ''">
+      <img *ngIf="product?.imageURL" [src]="product?.imageURL">
     </div>
     <div class="product-info-container">
       <div class="product-property-value">

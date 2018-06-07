@@ -39,7 +39,7 @@ export class CreateProductComponent {
     formData.append('image', this.image.nativeElement.files[0]);
     formData.append('name', this.name);
     formData.append('description', this.description);
-    formData.append('availableQuantity', this.name);
+    formData.append('availableQuantity', this.availableQuantity.toString());
     formData.append('category', this.category);
     formData.append('price', this.price.toString());
     try {
