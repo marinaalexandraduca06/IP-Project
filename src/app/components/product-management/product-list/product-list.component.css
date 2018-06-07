@@ -1,0 +1,10 @@
+.tabel-wrapper {
+  margin: 30px 5%;
+  width: 90%;
+
+}
+
+.tabel-row {
+  margin: 30px 20px;
+  border: 1px solid black;
+}

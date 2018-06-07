@@ -1,1 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+
+.button {
+  margin: 5px;
+  padding: 7px 15px;
+  background-color: #acbef8;
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+.primary-button {
+  background-color: #597cec;
+}

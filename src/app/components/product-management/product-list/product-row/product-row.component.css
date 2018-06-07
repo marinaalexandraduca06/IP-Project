@@ -1,0 +1,24 @@
+.content-wrapper {
+  padding: 15px;
+  position: relative;
+}
+
+.product-property-value {
+  line-height: 30px;
+}
+
+.product-property {
+  font-size: 20px;
+}
+
+.product-value {
+  color: grey;
+}
+
+img {
+  position: absolute;
+  height: 200px;
+  width: auto;
+  top: 20px;
+  right: 20px;
+}

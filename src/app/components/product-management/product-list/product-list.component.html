@@ -1,5 +1,5 @@
-<ul>
-  <li>1</li>
-  <li>2</li>
-  <li>3</li>
-</ul>
+<div class="tabel-wrapper">
+  <div class="tabel-row" *ngFor="let prod of products; let i = index">
+    <ip-product-row [product]="prod"></ip-product-row>
+  </div>
+</div>

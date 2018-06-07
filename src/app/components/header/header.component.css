@@ -1,3 +1,21 @@
 .header-wrapper {
   padding: 10px;
+  position: relative;
+  background-color: rgb(172, 190, 248); 
+  height: 100%;
+  max-height: 60px;
+}
+
+.header-title {
+  position: absolute;
+  top: 0px;
+  left: 50px;
+  font-family: "Gill Sans", sans-serif;
+  text-decoration: underline;
+}
+
+.buttons-wrapper {
+  position: absolute;
+  right: 0;
+  top: 30px;
 }
