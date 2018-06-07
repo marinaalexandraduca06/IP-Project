@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
-import { ProductService, OrderService } from '../../../services/index';
+import { ProductService, OrderService, AuthService } from '../../../services/index';
 import { ProductModel } from '../../../models/index';
 
 @Component({
@@ -11,15 +11,18 @@ import { ProductModel } from '../../../models/index';
 })
 export class ProductDetailsComponent implements OnInit {
   public product: ProductModel;
+  public isLogged: boolean;
 
   constructor(
     private productService: ProductService,
     private router: Router,
     private route: ActivatedRoute,
-    private orderService: OrderService
+    private orderService: OrderService,
+    private authService: AuthService
   ) {}
 
   ngOnInit(): void {
+    this.isLogged = this.authService.loggedIn();
     const productId = this.route.snapshot.params.id;
     // this.product = this.productService.getProduct(productId);
     this.product = new ProductModel({

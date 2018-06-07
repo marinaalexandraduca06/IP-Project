@@ -19,7 +19,7 @@ export class ProductService {
         'Content-Type': 'application/json'
       })
     };
-    const url = `${CONFIG.apiBase}/api/products`;
+    const url = `${CONFIG.apiBase}/products`;
     const products = await this.httpClient.get(url, httpOptions).toPromise();
     return products;
   }
@@ -30,7 +30,7 @@ export class ProductService {
         'Content-Type': 'application/json'
       })
     };
-    const url = `${CONFIG.apiBase}/api/products/${id}`;
+    const url = `${CONFIG.apiBase}/products/${id}`;
     const product = await this.httpClient.get(url, httpOptions).toPromise();
     return product;
   }
@@ -38,12 +38,11 @@ export class ProductService {
   public createProduct(product: ProductModel): Observable<ProductModel> {
     const httpOptions = {
       headers: new HttpHeaders({
-        'Content-Type': 'multipart/form-data',
+        'Content-Type': 'application/json',
         'userId': this.authService.loggedIn ? this.authService.user.getValue()._id : ''
       })
     };
-    const url = `${CONFIG.apiBase}/api/products`;
-    httpOptions.headers.append('userId', this.authService.user.getValue()._id);
+    const url = `${CONFIG.apiBase}/products`;
     return this.httpClient.post(url, product, httpOptions) as Observable<ProductModel>;
   }
 }

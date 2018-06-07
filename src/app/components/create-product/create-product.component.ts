@@ -29,10 +29,9 @@ export class CreateProductComponent implements OnInit {
       name: this.name,
       description: this.description,
       availableQuantity: this.availableQuantity,
-      store: this.store,
       category: this.category,
       price: this.price,
-      image: this.image
+      // image: this.image
     });
     try {
       await this.productService.createProduct(product).toPromise();
