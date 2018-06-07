@@ -23,6 +23,10 @@ export const ROUTES: Routes = [
           }
         },
         path: 'product-list'
+      },
+      {
+        component: Cmp.ProductDetailsComponent,
+        path: 'product-details/:id'
       }
     ],
     component: Cmp.ProductManagementComponent,

@@ -1,0 +1,24 @@
+.product-container {
+    display: inline-flex;
+}
+
+.product-container .product-image-container {
+    width: 500px;
+}
+
+.product-container .product-image-container img {
+    width: 100%;
+    height: 100%;
+}
+
+.product-container .product-info-container {
+    margin-left: 200px;
+}
+
+.product-wrapper {
+    padding: 20px 150px;
+}
+
+.action-link {
+    display: block;
+}
