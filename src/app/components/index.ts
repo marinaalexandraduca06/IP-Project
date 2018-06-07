@@ -3,13 +3,15 @@ import { ProductManagementComponent } from './product-management/product-managem
 import { ProductListComponent } from './product-management/product-list/product-list.component';
 import { ProductDetailsComponent } from './product-management/product-details/product-details.component';
 import { ProductRowComponent } from './product-management/product-list/product-row/product-row.component';
+import { LoginRegisterComponent } from './login-register/login-register.component';
 
 export const COMPONENTS = [
   HeaderComponent,
   ProductListComponent,
   ProductManagementComponent,
   ProductDetailsComponent,
-  ProductRowComponent
+  ProductRowComponent,
+  LoginRegisterComponent
 ];
 
 export {
@@ -17,5 +19,6 @@ export {
   ProductListComponent,
   ProductManagementComponent,
   ProductDetailsComponent,
-  ProductRowComponent
+  ProductRowComponent,
+  LoginRegisterComponent
 };

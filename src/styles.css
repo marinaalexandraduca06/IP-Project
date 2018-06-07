@@ -11,3 +11,11 @@
 .primary-button {
   background-color: #597cec;
 }
+
+.right {
+  float: right;
+}
+
+.left {
+  float: left;
+}

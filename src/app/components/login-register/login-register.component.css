@@ -1,0 +1,15 @@
+.main {
+    text-align: center;
+    margin-top: 100px;
+}
+
+.error-message {
+    background: red;
+    color: black;
+    text-align: center;
+    margin: 0 15px;
+}
+
+.form-input {
+    margin-bottom: 20px
+}

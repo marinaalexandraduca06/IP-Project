@@ -1,7 +1,14 @@
 <div class="header-wrapper">
   <h1 class="header-title">Online store</h1>
-  <div  class="buttons-wrapper">
-    <a class="button primary-button">Log in</a>
-    <a class="button">Sign up</a>
+  <div class="buttons-wrapper">
+    <ng-container *ngIf="!user; else userInfo">
+      <a class="button primary-button" (click)="goToLogin()">Log in</a>
+      <a class="button" (click)="goToRegister()">Sign up</a>
+    </ng-container>
   </div>
 </div>
+
+<ng-template #userInfo>
+  <a class="username">{{ user.firstName }} {{ user.lastName }}</a>
+  <a class="button" (click)="doSignOut()">Sign out</a>
+</ng-template>

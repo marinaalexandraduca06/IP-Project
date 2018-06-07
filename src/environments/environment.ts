@@ -11,5 +11,5 @@ export const environment = {
 
 
 export const CONFIG = {
-  apiBase: 'localhost:3000',
+  apiBase: 'http://localhost:3000',
 };

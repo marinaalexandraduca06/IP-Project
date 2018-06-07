@@ -1,13 +1,27 @@
 import { Routes } from '@angular/router';
 
 import * as Cmp from './components';
+import { LoginPageMode } from './app.enums';
 
 export const ROUTES: Routes = [
   {
     path: '',
     redirectTo: 'product-management',
     pathMatch: 'full' },
-  // { path: 'login', component: Cmp.LoginComponent },
+  {
+    path: 'login',
+    component: Cmp.LoginRegisterComponent,
+    data: {
+      type: LoginPageMode.login
+    }
+  },
+  {
+    path: 'register',
+    component: Cmp.LoginRegisterComponent,
+    data: {
+      type: LoginPageMode.register
+    }
+  },
   {
     children: [
       {

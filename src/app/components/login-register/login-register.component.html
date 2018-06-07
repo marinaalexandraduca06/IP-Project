@@ -1,0 +1,63 @@
+<div class="error-message" *ngIf="error">
+  {{ error }}
+</div>
+
+<div class="main">
+
+  <div class="register" *ngIf="!isLogin">
+    <div class="form-input">
+      <label class="first-name-label">First Name: </label>
+      <input type="text" class="first-name-input" placeholder="First Name" [(ngModel)]="firstName" [ngModelOptions]="{standalone: true}"
+        required>
+    </div>
+    <div class="form-input">
+      <label class="last-name-label">Last Name: </label>
+      <input type="text" class="last-name-input" placeholder="Last Name" [(ngModel)]="lastName" [ngModelOptions]="{standalone: true}"
+        required>
+    </div>
+    <div class="form-input">
+      <label class="last-name-label">Country: </label>
+      <input type="text" class="last-name-input" placeholder="Country" [(ngModel)]="country" [ngModelOptions]="{standalone: true}"
+        required>
+    </div>
+    <div class="form-input">
+      <label class="last-name-label">City: </label>
+      <input type="text" class="last-name-input" placeholder="City" [(ngModel)]="city" [ngModelOptions]="{standalone: true}"
+        required>
+    </div>
+    <div class="form-input">
+      <label class="last-name-label">Phone: </label>
+      <input type="tel" class="last-name-input" placeholder="Phone" [(ngModel)]="phone" [ngModelOptions]="{standalone: true}"
+        required>
+    </div>
+    <div class="form-input">
+      <label class="last-name-label">Address: </label>
+      <input type="text" class="last-name-input" placeholder="Address" [(ngModel)]="address" [ngModelOptions]="{standalone: true}" required>
+    </div>
+  </div>
+
+  <div class="login">
+    <div class="username-input-container">
+      <div class="form-input">
+        <label class="username-label">Email: </label>
+        <input type="email" class="username-input" placeholder="Email" [(ngModel)]="email" [ngModelOptions]="{standalone: true}"
+          required>
+      </div>
+    </div>
+    <div class="password-input-container">
+      <div class="form-input">
+        <label class="password-label">Password: </label>
+        <input type="password" class="password-input" placeholder="Password" [(ngModel)]="password" [ngModelOptions]="{standalone: true}"
+          required>
+      </div>
+    </div>
+    <div class="confirm-password-input-container" *ngIf="!isLogin">
+      <div class="form-input">
+        <label class="confirm-password-label">Confirm password: </label>
+        <input type="password" class="confirm-password-input" placeholder="Confirm password" [(ngModel)]="passwordConfirmation" [ngModelOptions]="{standalone: true}"
+          required>
+      </div>
+    </div>
+    <a class="button primary-button" (click)="isLogin ? doLogin() : doRegister()">Confirm</a>
+  </div>
+</div>

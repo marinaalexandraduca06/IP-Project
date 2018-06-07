@@ -1,9 +1,12 @@
 import { ProductModel } from './product.model';
+import { UserModel } from './user.model';
 
 export const MODELS = [
-  ProductModel
+  ProductModel,
+  UserModel
 ];
 
 export {
-  ProductModel
+  ProductModel,
+  UserModel
 };
