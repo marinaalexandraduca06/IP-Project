@@ -13,3 +13,8 @@ export enum ProductCategories {
   HOME = 'HOME',
   COSMETICS = 'COSMETICS'
 }
+
+export enum OrderStatus {
+  DONE = 'DONE',
+  ACTIVE = 'ACTIVE'
+}

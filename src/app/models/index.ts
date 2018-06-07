@@ -1,12 +1,18 @@
 import { ProductModel } from './product.model';
 import { UserModel } from './user.model';
+import { OrderElementModel } from './orderElement.model';
+import { OrderModel } from './order.model';
 
 export const MODELS = [
   ProductModel,
-  UserModel
+  UserModel,
+  OrderElementModel,
+  OrderModel
 ];
 
 export {
   ProductModel,
-  UserModel
+  UserModel,
+  OrderElementModel,
+  OrderModel
 };

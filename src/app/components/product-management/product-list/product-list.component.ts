@@ -20,19 +20,6 @@ export class ProductListComponent implements OnInit {
 
   public async ngOnInit(): Promise<void> {
     this.products = await this.productService.getProducts();
-    // for (let i = 0; i < 10; i++) {
-    //   const product: ProductModel = new ProductModel({
-    //     _id: '' + i + 1,
-    //     name: 'Name' + ( i + 1 ),
-    //     description: 'Description' + ( i + 1 ),
-    //     price: ( i + 1 ) * 5,
-    //     store: 'Store' + ( i + 1 ),
-    //     availableQuantity: 100 - i,
-    //     category: 'Category' + ( i + 1 ),
-    //     imageURL: 'http://www.daytonaradio.com/wkro/wp-content/uploads/sites/4/2015/07/ice-cream.jpg'
-    //   });
-    //   this.products.push(product);
-    // }
   }
 
   public goToProductDetails(productId: string): void {

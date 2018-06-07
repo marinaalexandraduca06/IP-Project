@@ -1,0 +1,16 @@
+<div class="content-wrapper" [ngClass]="{ 'clickable': !inCartSection }">
+  <div class="product-property-value">
+    <span class="product-property">Name: </span>
+    <span class="product-value">{{ product?.name }}</span>
+  </div>
+  <div class="product-property-value">
+    <span class="product-property">Category: </span>
+    <span class="product-value">{{ product?.category }}</span>
+  </div>
+  <div class="product-property-value">
+    <span class="product-property">Price:</span>
+    <span class="product-value">{{ product?.price }}</span>
+    <span class="product-value">Euro</span>
+  </div>
+  <img [src]="product?.imageURL">
+</div>

@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { ProductModel, UserModel } from '../../../models/index';
+import { ProductModel, UserModel, OrderModel, OrderElementModel } from '../../../models/index';
 import { IColumnSchema } from '../../../app.interfaces';
+import { OrderStatus } from '../../../app.enums';
+import { ProductService } from '../../../services/index';
 
 @Component({
   selector: 'ip-cart',
@@ -10,26 +12,24 @@ import { IColumnSchema } from '../../../app.interfaces';
   templateUrl: './cart.component.html'
 })
 export class CartComponent implements OnInit {
-  public products: ProductModel[] = [];
+  public order: OrderModel;
 
   constructor(
-    private router: Router
+    private router: Router,
+    private productService: ProductService
   ) {}
 
-  public ngOnInit(): void {
-    for (let i = 0; i < 10; i++) {
-      const product: ProductModel = new ProductModel({
-        _id: '' + i + 1,
-        name: 'Name' + ( i + 1 ),
-        description: 'Description' + ( i + 1 ),
-        price: ( i + 1 ) * 5,
-        store: new UserModel(),
-        availableQuantity: 100 - i,
-        category: 'Category' + ( i + 1 ),
-        imageURL: 'http://www.daytonaradio.com/wkro/wp-content/uploads/sites/4/2015/07/ice-cream.jpg'
-      });
-      this.products.push(product);
-    }
+  public async ngOnInit(): Promise<void> {
+    let products = await this.productService.getProducts();
+    products = products.filter((el) => el.name.indexOf('IPhone') !== -1);
+    this.order = new OrderModel({
+      _id: '1',
+      status: OrderStatus.ACTIVE,
+      products: products.map((el) => new OrderElementModel({
+        product: el,
+        quantity: 5
+      }))
+    });
   }
 
   public goToProductDetails(productId: string): void {
