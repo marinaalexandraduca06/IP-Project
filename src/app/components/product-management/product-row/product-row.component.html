@@ -12,7 +12,7 @@
     <span class="product-value">{{ product?.price }}</span>
     <span class="product-value">Euro</span>
   </div>
-  <img [src]="product.imgURL">
+  <img [src]="product.imageURL">
   <div class="buttons-wrapper" *ngIf="inCartSection">
     <a class="button primary-button" (click)="editQuantity()">Edit quantity</a>
     <a class="button" (click)="removeOrder()">Remove from cart</a>

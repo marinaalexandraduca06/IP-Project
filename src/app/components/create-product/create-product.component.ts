@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { ProductModel } from '../../models';
@@ -19,23 +19,31 @@ export class CreateProductComponent {
   public store: string;
   public category: string;
   public price: number;
-  public image: any;
+  @ViewChild('image')
+  public image: ElementRef;
 
   public Categories: string[] = Object.keys(ProductCategories);
 
   constructor(private productService: ProductService, private router: Router) { }
 
   public async createProduct(): Promise<void> {
-    const product = new ProductModel({
-      name: this.name,
-      description: this.description,
-      availableQuantity: this.availableQuantity,
-      category: this.category,
-      price: this.price,
-      // image: this.image
-    });
+    // const product = new ProductModel({
+    //   name: this.name,
+    //   description: this.description,
+    //   availableQuantity: this.availableQuantity,
+    //   category: this.category,
+    //   price: this.price,
+    //   // image: this.image
+    // });
+    const formData: FormData = new FormData();
+    formData.append('image', this.image.nativeElement.files[0]);
+    formData.append('name', this.name);
+    formData.append('description', this.description);
+    formData.append('availableQuantity', this.name);
+    formData.append('category', this.category);
+    formData.append('price', this.price.toString());
     try {
-      await this.productService.createProduct(product).toPromise();
+      await this.productService.createProduct(formData).toPromise();
       this.router.navigate(['..']);
     } catch (e) {
       console.log(e.error.message);

@@ -21,21 +21,21 @@ export class ProductDetailsComponent implements OnInit {
     private authService: AuthService
   ) {}
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
     this.isLogged = this.authService.loggedIn();
     const productId = this.route.snapshot.params.id;
-    // this.product = this.productService.getProduct(productId);
-    this.product = new ProductModel({
-      _id: '1',
-      name: 'Name',
-      description: 'Description',
-      price: 5,
-      store: 'Store',
-      availableQuantity: 100,
-      category: 'Category',
-      imgURL:
-        'http://www.daytonaradio.com/wkro/wp-content/uploads/sites/4/2015/07/ice-cream.jpg'
-    });
+    this.product = await this.productService.getProduct(productId);
+    // this.product = new ProductModel({
+    //   _id: '1',
+    //   name: 'Name',
+    //   description: 'Description',
+    //   price: 5,
+    //   store: 'Store',
+    //   availableQuantity: 100,
+    //   category: 'Category',
+    //   imageURL:
+    //     'http://www.daytonaradio.com/wkro/wp-content/uploads/sites/4/2015/07/ice-cream.jpg'
+    // });
   }
 
   public goBack(): void {

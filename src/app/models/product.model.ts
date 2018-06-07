@@ -1,12 +1,14 @@
+import { UserModel } from './user.model';
+
 export class ProductModel {
   public _id: string;
   public name: string;
   public description: string;
   public availableQuantity: number;
-  public store: string;
+  public store: UserModel;
   public category: string;
   public price: number;
-  public imgURL: string;
+  public imageURL: string;
   public image: any;
 
   constructor (fields?: {
@@ -14,10 +16,10 @@ export class ProductModel {
     name?: string,
     description?: string,
     availableQuantity?: number,
-    store?: string,
+    store?: UserModel,
     category?: string,
     price?: number,
-    imgURL?: string,
+    imageURL?: string,
     image?: any
   }) {
     Object.assign(this, fields);

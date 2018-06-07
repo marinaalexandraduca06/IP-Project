@@ -21,7 +21,7 @@ export class ProductService {
     };
     const url = `${CONFIG.apiBase}/products`;
     const products = await this.httpClient.get(url, httpOptions).toPromise();
-    return products;
+    return products['result'].docs;
   }
 
   public async getProduct(id: any, params?: any): Promise<any> {
@@ -32,13 +32,13 @@ export class ProductService {
     };
     const url = `${CONFIG.apiBase}/products/${id}`;
     const product = await this.httpClient.get(url, httpOptions).toPromise();
-    return product;
+    return product['result'];
   }
 
-  public createProduct(product: ProductModel): Observable<ProductModel> {
+  public createProduct(product: FormData): Observable<ProductModel> {
     const httpOptions = {
       headers: new HttpHeaders({
-        'Content-Type': 'application/json',
+        'Accept': 'application/json',
         'userId': this.authService.loggedIn ? this.authService.user.getValue()._id : ''
       })
     };

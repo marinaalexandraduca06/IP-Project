@@ -5,7 +5,7 @@
   </a>
   <div class="product-container">
     <div class="product-image-container">
-      <img [src]="product?.imgURL">
+      <img [src]="product?.imageURL ? product?.imageURL : ''">
     </div>
     <div class="product-info-container">
       <div class="product-property-value">
@@ -27,7 +27,7 @@
       </div>
       <div class="product-property-value">
         <span class="product-property">Store:</span>
-        <span class="product-value">{{ product?.store }}</span>
+        <span class="product-value">{{ product?.store?.firstName }} {{ product?.store?.lastName }}</span>
       </div>
       <a *ngIf="isLogged" class="button primary-button add-to-cart-button" (click)="addProductToCart()">Add to cart</a>
     </div>

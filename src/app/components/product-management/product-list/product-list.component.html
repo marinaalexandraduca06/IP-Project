@@ -1,5 +1,5 @@
 <div class="tabel-wrapper">
   <div class="tabel-row" *ngFor="let prod of products; let i = index">
-    <ip-product-row [product]="prod" (click)="goToProductDetails(1)"></ip-product-row>
+    <ip-product-row [product]="prod" (click)="goToProductDetails(prod._id)"></ip-product-row>
   </div>
 </div>
