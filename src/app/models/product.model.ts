@@ -1,7 +1,7 @@
 export class ProductModel {
+  public _id: string;
   public name: string;
   public description: string;
-  public rate: number;
   public availableQuantity: number;
   public store: string;
   public category: string;
@@ -10,9 +10,9 @@ export class ProductModel {
   public image: any;
 
   constructor (fields?: {
+    _id?: string,
     name?: string,
     description?: string,
-    rate?: number,
     availableQuantity?: number,
     store?: string,
     category?: string,

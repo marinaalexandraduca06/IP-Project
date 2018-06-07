@@ -31,11 +31,6 @@ export const ROUTES: Routes = [
       },
       {
         component: Cmp.ProductListComponent,
-        data: {
-          animation: {
-            index: 3
-          }
-        },
         path: 'product-list'
       },
       {
@@ -45,6 +40,10 @@ export const ROUTES: Routes = [
       {
         component: Cmp.CreateProductComponent,
         path: 'create-product'
+      },
+      {
+        component: Cmp.CartComponent,
+        path: 'cart'
       }
     ],
     component: Cmp.ProductManagementComponent,

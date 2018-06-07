@@ -19,3 +19,7 @@
 .left {
   float: left;
 }
+
+.clickable {
+  cursor: pointer;  
+}

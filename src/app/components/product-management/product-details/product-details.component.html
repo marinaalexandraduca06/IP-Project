@@ -1,23 +1,39 @@
 <div class="product-wrapper">
-    <a class="action-link" (click)="goBack()">Back</a>
-    <div class="product-container">
-        <div class="product-image-container">
-            <img src="https://www.mathworks.com/matlabcentral/mlc-downloads/downloads/submissions/39110/versions/6/screenshot.jpg">
-
-        </div>
-        <div class="product-info-container">
-            <h4 class="title">Item title: Title</h4>
-            <p class="rating">Rating: 4.5/5</p>
-            <button class="button" (click)="addProductToCart()">Add to cart</button>
-        </div>
+  <a class="action-link" (click)="goBack()">
+    <img src="../../../assets/back-icon.png" class="back-icon">
+    Back
+  </a>
+  <div class="product-container">
+    <div class="product-image-container">
+      <img [src]="product?.imgURL">
     </div>
-    <div class="product-description-container">
-        <h2>Description:</h2>
-        <p class="product-descrition"> Lorem ipsum dolor sit amet, per brute utroque commune ea, dicta electram ne nec, vim errem adolescens at. Eum eu aperiri suscipiantur comprehensam. Harum elaboraret sea no. No homero antiopam hendrerit est.
-
-            Vide aeterno voluptatum duo no. Dicam commune definiebas te pri, ut vis essent albucius incorrupte. Mei legimus senserit constituto cu. Quo tota augue vituperata ei, elaboraret intellegebat eos id. Duo eu mundi invenire. Ea munere accumsan vis, mei at dictas definitionem, sed noster ponderum conclusionemque at. Ne mei omnis solet, mea prima deserunt vulputate ne, et vel alii aliquam rationibus.
-            
-            Cu nec omnis scriptorem, cum saperet electram te. Id augue simul usu, vidisse docendi democritum vim in, eu mea ridens alienum. Mel id nullam accumsan vituperatoribus, et alii euismod scriptorem eum. Ne sed omnes mnesarchum, eirmod prompta persequeris in eos. Ei pri oblique nostrum percipitur, te quot everti dolorem has. Ne erant ornatus percipit quo, dolore pertinacia eu qui, tota errem sanctus mei ea.
-            </p>
+    <div class="product-info-container">
+      <div class="product-property-value">
+        <span class="product-property">Name: </span>
+        <span class="product-value">{{ product?.name }}</span>
+      </div>
+      <div class="product-property-value">
+        <span class="product-property">Category: </span>
+        <span class="product-value">{{ product?.category }}</span>
+      </div>
+      <div class="product-property-value">
+        <span class="product-property">Available quantity: </span>
+        <span class="product-value">{{ product?.availableQuantity }}</span>
+      </div>
+      <div class="product-property-value">
+        <span class="product-property">Price:</span>
+        <span class="product-value">{{ product?.price }}</span>
+      </div>
+      <div class="product-property-value">
+        <span class="product-property">Store:</span>
+        <span class="product-value">{{ product?.store }}</span>
+      </div>
+      <a class="button primary-button add-to-cart-button" (click)="addProductToCart()">Add to cart</a>
     </div>
+  </div>
+  <div class="product-description-container">
+    <h2>Description:</h2>
+    <p class="product-descrition">{{ product?.description}}
+    </p>
+  </div>
 </div>

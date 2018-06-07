@@ -4,3 +4,9 @@ export interface IColumnSchema {
   filter: string;
   sort: number;
 }
+
+export interface ButtonTypeInterface {
+  name: string;
+  primary: boolean;
+  disabled: boolean;
+}

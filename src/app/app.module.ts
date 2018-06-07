@@ -1,8 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 import {
   Injector, NgModule
 } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { PreloadAllModules, RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
@@ -18,9 +18,9 @@ import { HttpClientModule } from '@angular/common/http';
     ...COMPONENTS
   ],
   imports: [
+    FormsModule,
     BrowserModule,
     HttpClientModule,
-    FormsModule,
     RouterModule.forRoot(ROUTES, {
       preloadingStrategy: PreloadAllModules,
       useHash: true

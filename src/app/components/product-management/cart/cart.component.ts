@@ -5,11 +5,11 @@ import { ProductModel } from '../../../models/index';
 import { IColumnSchema } from '../../../app.interfaces';
 
 @Component({
-  selector: 'ip-product-list',
-  styleUrls: ['./product-list.component.css'],
-  templateUrl: './product-list.component.html'
+  selector: 'ip-cart',
+  styleUrls: ['./cart.component.css'],
+  templateUrl: './cart.component.html'
 })
-export class ProductListComponent implements OnInit {
+export class CartComponent implements OnInit {
   public products: ProductModel[] = [];
 
   constructor(
