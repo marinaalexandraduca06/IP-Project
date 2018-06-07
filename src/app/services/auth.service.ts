@@ -52,7 +52,7 @@ export class AuthService {
     localStorage.setItem('currentUser', JSON.stringify(user));
     this.authToken.next(token);
     this.user.next(new UserModel({
-      id: user.id,
+      _id: user._id,
       firstName: user.firstName,
       lastName: user.lastName,
       email: user.email
@@ -65,7 +65,7 @@ export class AuthService {
     const tempUser = JSON.parse(localStorage.getItem('currentUser'));
     if (tempUser) {
       this.user.next(new UserModel({
-        id: tempUser.id,
+        _id: tempUser._id,
         firstName: tempUser.firstName,
         lastName: tempUser.lastName,
         email: tempUser.email

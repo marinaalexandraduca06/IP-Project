@@ -1,5 +1,5 @@
 export class UserModel {
-  public id: string;
+  public _id: string;
   public firstName: string;
   public lastName: string;
   public email: string;
@@ -10,7 +10,7 @@ export class UserModel {
   private password: string;
 
   constructor(fields?: {
-    id?: string,
+    _id?: string,
     firstName?: string,
     lastName?: string,
     email?: string,

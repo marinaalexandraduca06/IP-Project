@@ -39,11 +39,11 @@ export class ProductService {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'multipart/form-data',
-        'userId': this.authService.loggedIn ? this.authService.user.getValue().id : ''
+        'userId': this.authService.loggedIn ? this.authService.user.getValue()._id : ''
       })
     };
     const url = `${CONFIG.apiBase}/api/products`;
-    httpOptions.headers.append('userId', this.authService.user.getValue().id);
+    httpOptions.headers.append('userId', this.authService.user.getValue()._id);
     return this.httpClient.post(url, product, httpOptions) as Observable<ProductModel>;
   }
 }

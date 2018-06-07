@@ -38,7 +38,7 @@ export class CreateProductComponent implements OnInit {
       await this.productService.createProduct(product).toPromise();
       this.router.navigate(['..']);
     } catch (e) {
-      console.log(e);
+      console.log(e.error.message);
     }
   }
 
