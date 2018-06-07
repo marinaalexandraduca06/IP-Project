@@ -7,9 +7,8 @@ import { PreloadAllModules, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { COMPONENTS } from './components/index';
 import { ROUTES } from './app.routes';
-import { ProductService } from './services';
+import { ProductService, OrderService } from './services';
 import { HttpClientModule } from '@angular/common/http';
-import { OrderService } from './services/order.service';
 
 
 @NgModule({
