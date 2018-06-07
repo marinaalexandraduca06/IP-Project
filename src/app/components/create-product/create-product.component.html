@@ -1,0 +1,35 @@
+<div class="product-form-wrapper">
+  <div class="product-form-container">
+    <div class="product-form">
+      <label>Name: </label>
+      <input type="text" placeholder="Name" [(ngModel)]="name">
+    </div>
+    <div class="product-form">
+      <label>Available quantity: </label>
+      <input type="number" placeholder="Available quantity" [(ngModel)]="availableQuantity">
+    </div>
+    <div class="product-form">
+      <label>Store: </label>
+      <input type="text" placeholder="Store" [(ngModel)]="store">
+    </div>
+    <div class="product-form">
+      <label>Category: </label>
+      <input type="text" placeholder="Category" [(ngModel)]="category">
+    </div>
+    <div class="product-form">
+      <label>Price: </label>
+      <input type="number" placeholder="Price" [(ngModel)]="price">
+    </div>
+    <div class="product-form">
+      <label>Image: </label>
+      <input type="file" placeholder="Image URL" [(ngModel)]="image">
+    </div>
+    <div class="product-form">
+      <label>Description: </label>
+      <textarea type="text" placeholder="Description" [(ngModel)]="description"></textarea>
+    </div>
+    <div class="product-form">
+      <a class="button primary-button" (click)="createProduct()">Create</a>
+    </div>
+  </div>
+</div>

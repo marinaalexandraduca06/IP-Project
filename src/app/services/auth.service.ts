@@ -9,13 +9,12 @@ import { tokenNotExpired } from 'angular2-jwt';
 
 import { CONFIG } from '../../environments/environment';
 import { UserModel } from '../models';
-import { HttpResponse } from 'selenium-webdriver/http';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 @Injectable()
 export class AuthService {
 
-  public authToken: BehaviorSubject<string> = new BehaviorSubject('');
+  public authToken: BehaviorSubject<string> = new BehaviorSubject(undefined);
   public user: BehaviorSubject<UserModel> = new BehaviorSubject(undefined);
 
   constructor(
@@ -26,34 +25,32 @@ export class AuthService {
     return tokenNotExpired('id_token');
   }
 
-  public async register(user: UserModel): Promise<void> {
+  public register(user: UserModel): Observable<UserModel> {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
       })
     };
-    await this.http.post(`${CONFIG.apiBase}/users/register`, user, httpOptions)
-      .map((res) => res)
-      .pipe(catchError(this.handleError)).toPromise();
+    return this.http.post(`${CONFIG.apiBase}/users/register`, user, httpOptions)
+      .map((res) => res) as Observable<UserModel>;
   }
 
-  public async login(userData): Promise<void> {
+  public login(userData): Observable<void> {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
       })
     };
-    await this.http.post(`${CONFIG.apiBase}/users/login`, userData, httpOptions)
-      .map((res: HttpResponse) => {
+    return this.http.post(`${CONFIG.apiBase}/users/login`, userData, httpOptions)
+      .map((res) => {
         this.storeUserData(res['result'].token, res['result'].user);
-      })
-      .pipe(catchError(this.handleError)).toPromise();
+      });
   }
 
   public storeUserData(token, user: UserModel): void {
     localStorage.setItem('id_token', token);
     localStorage.setItem('currentUser', JSON.stringify(user));
-    this.authToken = token;
+    this.authToken.next(token);
     this.user.next(new UserModel({
       id: user.id,
       firstName: user.firstName,
@@ -78,8 +75,8 @@ export class AuthService {
   }
 
   public logout(): void {
-    this.authToken.next('');
-    this.user.next(null);
+    this.authToken.next(undefined);
+    this.user.next(undefined);
     localStorage.clear();
   }
 

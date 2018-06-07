@@ -41,6 +41,10 @@ export const ROUTES: Routes = [
       {
         component: Cmp.ProductDetailsComponent,
         path: 'product-details/:id'
+      },
+      {
+        component: Cmp.CreateProductComponent,
+        path: 'create-product'
       }
     ],
     component: Cmp.ProductManagementComponent,

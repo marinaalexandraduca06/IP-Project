@@ -37,12 +37,12 @@ export class LoginRegisterComponent implements OnInit {
       password: this.password
     };
     try {
-      this.authService.login(userData);
+      await this.authService.login(userData).toPromise();
+      console.log(this.authService.user.getValue());
+      this.router.navigate(['']);
     } catch (e) {
-      this.error = e;
-      console.log(e);
+      this.error = e.error.message;
     }
-    this.router.navigate(['']);
   }
 
   public async doRegister(): Promise<void> {
@@ -59,11 +59,10 @@ export class LoginRegisterComponent implements OnInit {
         address: this.address
       });
       try {
-        await this.authService.register(userData);
-        this.doLogin();
+        await this.authService.register(userData).toPromise();
+        this.router.navigate(['']);
       } catch (e) {
-        this.error = e;
-        console.log(e);
+        this.error = e.error.message;
       }
     }
   }
@@ -71,7 +70,7 @@ export class LoginRegisterComponent implements OnInit {
   public validateFields(): void {
     this.error = '';
     if (!this.isLogin && this.password !== this.passwordConfirmation) {
-      this.error = 'Password and password confiramtion don\'t match';
+      this.error = 'Password and password confirmation don\'t match';
     }
   }
 }

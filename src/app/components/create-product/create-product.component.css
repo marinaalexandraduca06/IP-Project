@@ -1,0 +1,15 @@
+.product-form-wrapper {
+  padding: 20px 150px;
+  text-align: center;
+}
+
+.product-form {
+  margin-bottom: 20px;
+}
+
+.product-form-container {
+  border-radius: 10px;
+  background: #d9ddef;
+  padding: 80px;
+  margin: 30px 30%;
+}

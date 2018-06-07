@@ -7,6 +7,7 @@ export class ProductModel {
   public category: string;
   public price: number;
   public imgURL: string;
+  public image: any;
 
   constructor (fields?: {
     name?: string,
@@ -16,7 +17,8 @@ export class ProductModel {
     store?: string,
     category?: string,
     price?: number,
-    imgURL?: string
+    imgURL?: string,
+    image?: any
   }) {
     Object.assign(this, fields);
   }
