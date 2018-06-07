@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { ProductModel } from '../../models';
 import { ProductService } from '../../services';
+import { ProductCategories } from '../../app.enums';
 
 @Component({
   selector: 'ip-create-product',
@@ -10,7 +11,7 @@ import { ProductService } from '../../services';
   templateUrl: './create-product.component.html'
 })
 
-export class CreateProductComponent implements OnInit {
+export class CreateProductComponent {
 
   public name: string;
   public description: string;
@@ -20,9 +21,9 @@ export class CreateProductComponent implements OnInit {
   public price: number;
   public image: any;
 
-  constructor(private productService: ProductService, private router: Router) { }
+  public Categories: string[] = Object.keys(ProductCategories);
 
-  ngOnInit() { }
+  constructor(private productService: ProductService, private router: Router) { }
 
   public async createProduct(): Promise<void> {
     const product = new ProductModel({
@@ -39,6 +40,10 @@ export class CreateProductComponent implements OnInit {
     } catch (e) {
       console.log(e.error.message);
     }
+  }
+
+  public applyCategory(categ: string): void {
+    this.category = categ;
   }
 
 }

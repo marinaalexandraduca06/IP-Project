@@ -1,0 +1,31 @@
+.dropdown-wrapper {
+  width: 200px;
+  background-color: white;
+  position: relative;
+}
+
+.dropdown-item {
+  border: 1px solid #09080830;
+  line-height: 25px;
+  min-height: 25px;
+}
+
+.dropdown-container {
+  position: absolute;
+  width: 100%;
+  background-color: white;
+  cursor: pointer;
+}
+
+.arrow-img {
+  height: 20px;
+  width: auto;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  cursor: pointer;
+}
+
+.selected-item {
+  color: #8f9aaa;
+}

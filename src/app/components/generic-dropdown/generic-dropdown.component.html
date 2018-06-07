@@ -1,0 +1,11 @@
+<div class="dropdown-wrapper">
+  <div class="dropdown-item">
+    <span class="selected-item">{{ selectedItem ? selectedItem : placeholder }}</span>
+  </div>
+  <img class="arrow-img" [src]="isDropdownOpened ? '../../../assets/arrow-up.png' : '../../../assets/arrow-down.png'" (click)="toggleDropdown()">
+  <div class="dropdown-container" *ngIf="isDropdownOpened">
+    <div class="dropdown-item" *ngFor="let item of itemList" (click)="onApply(item)">
+      <span>{{ item }}</span>
+    </div>
+  </div>
+</div>

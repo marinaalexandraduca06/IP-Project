@@ -7,6 +7,7 @@ import { CartComponent } from './product-management/cart/cart.component';
 import { GenericPopupComponent } from './generic-popup/generic-popup.component';
 import { LoginRegisterComponent } from './login-register/login-register.component';
 import { CreateProductComponent } from './create-product/create-product.component';
+import { GenericDropdownComponent } from './generic-dropdown/generic-dropdown.component';
 
 export const COMPONENTS = [
   HeaderComponent,
@@ -17,7 +18,8 @@ export const COMPONENTS = [
   LoginRegisterComponent,
   CreateProductComponent,
   CartComponent,
-  GenericPopupComponent
+  GenericPopupComponent,
+  GenericDropdownComponent
 ];
 
 export {
@@ -29,5 +31,6 @@ export {
   LoginRegisterComponent,
   CreateProductComponent,
   CartComponent,
-  GenericPopupComponent
+  GenericPopupComponent,
+  GenericDropdownComponent
 };

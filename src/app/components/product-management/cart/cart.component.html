@@ -2,4 +2,7 @@
   <div class="tabel-row" *ngFor="let prod of products; let i = index">
     <ip-product-row [product]="prod" [inCartSection]="true"></ip-product-row>
   </div>
+  <div class="buy-products-button">
+    <a class="button primary-button" (click)="buyProducts()">Buy products</a>
+  </div>
 </div>
