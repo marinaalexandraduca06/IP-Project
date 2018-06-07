@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';
 
 import { ButtonTypeInterface } from '../../../../app.interfaces';
 import { OrderElementModel } from '../../../../models/index';
@@ -10,6 +10,9 @@ import { OrderElementModel } from '../../../../models/index';
 })
 export class CartRowComponent {
   @Input() public orderElement: OrderElementModel;
+  @Output() public orderElementChanged: EventEmitter<OrderElementModel> = new EventEmitter();
+  @Output() public orderElementDeleted: EventEmitter<OrderElementModel> = new EventEmitter();
+  @ViewChild('quantityValue') public quantityValue: ElementRef;
 
   public editQuantityPopupOpened: boolean;
   public editQuntityPopupButtons: ButtonTypeInterface[] = [
@@ -24,12 +27,13 @@ export class CartRowComponent {
     this.editQuantityPopupOpened = true;
   }
   public removeOrder(): void {
-    // delete order
+    this.orderElementDeleted.emit(this.orderElement);
   }
 
   public closeEditQuntityPopup(buttonName): void {
     if (buttonName !== 'Cancel') {
-      // patch order
+      this.orderElement.quantity = this.quantityValue.nativeElement.value;
+      this.orderElementChanged.emit(this.orderElement);
     }
     this.editQuantityPopupOpened = false;
   }

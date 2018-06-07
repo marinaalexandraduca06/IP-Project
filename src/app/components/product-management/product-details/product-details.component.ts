@@ -42,8 +42,8 @@ export class ProductDetailsComponent implements OnInit {
     this.router.navigate(['..']);
   }
 
-  public addProductToCart(): void {
-    // this.orderService.updateOrder(undefined, this.product.id);
-    console.log('item added');
+  public async addProductToCart(): Promise<void> {
+    await this.orderService.addItem(this.product);
+    this.router.navigate(['..']);
   }
 }

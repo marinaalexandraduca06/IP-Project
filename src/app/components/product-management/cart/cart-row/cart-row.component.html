@@ -12,6 +12,10 @@
     <span class="product-value">{{ orderElement?.product?.price }}</span>
     <span class="product-value">Euro</span>
   </div>
+  <div class="product-property-value">
+    <span class="product-property">Quantity:</span>
+    <span class="product-value">{{ orderElement?.quantity }}</span>
+  </div>
   <img [src]="orderElement?.product?.imageURL">
   <div class="buttons-wrapper">
     <a class="button primary-button" (click)="editQuantity()">Edit quantity</a>
@@ -21,5 +25,5 @@
 
 <ip-generic-popup header="Edit quantity" [buttons]="editQuntityPopupButtons" (action)='closeEditQuntityPopup($event)' [isOpened]="editQuantityPopupOpened">
     <label>Choose quantity:</label>
-    <input type="text" [(ngModel)]="productQuantity">
+    <input type="text" #quantityValue [value]="orderElement.quantity">
 </ip-generic-popup>

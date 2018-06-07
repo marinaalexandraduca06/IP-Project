@@ -1,6 +1,6 @@
 <div class="tabel-wrapper">
   <div class="tabel-row" *ngFor="let orderElement of order?.products; let i = index">
-    <ip-cart-row [orderElement]="orderElement"></ip-cart-row>
+    <ip-cart-row [orderElement]="orderElement" (orderElementDeleted)="removeProduct($event)" (orderElementChanged)="editProductQuantity($event)"></ip-cart-row>
   </div>
   <div class="buy-products-button" *ngIf="order?.products?.length; else noProducts">
     <a class="button primary-button" (click)="buyProducts()">Buy products</a>
