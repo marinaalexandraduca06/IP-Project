@@ -3,7 +3,6 @@
 </div>
 
 <div class="main">
-
   <div class="register" *ngIf="!isLogin">
     <div class="form-input">
       <label class="first-name-label">First Name: </label>
@@ -58,6 +57,8 @@
           required>
       </div>
     </div>
-    <a class="button primary-button" (click)="isLogin ? doLogin() : doRegister()">Confirm</a>
+    <div class="confirm-button">
+      <a class="button primary-button" (click)="isLogin ? doLogin() : doRegister()">Confirm</a>
+    </div>
   </div>
 </div>

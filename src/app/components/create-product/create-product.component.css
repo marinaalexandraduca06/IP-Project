@@ -13,7 +13,19 @@
   padding: 80px;
   margin: 30px 20%;
 }
+.product-form-container {
+  border-radius: 10px;
+  background: #d9ddef;
+  padding: 80px;
+  margin: 30px 20%;
+}
 
 ip-generic-dropdown {
   display: inline-flex;
+}
+
+.create-button {
+  width: 100%;
+  text-align: center;
+  margin-top: 70px;
 }

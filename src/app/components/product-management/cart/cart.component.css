@@ -1,7 +1,5 @@
 .tabel-wrapper {
   margin: 20px;
-  padding: 0 0 50px 0;
-  width: 90%;
   position: relative;
 }
 
@@ -14,4 +12,11 @@
   width: 100%;
   text-align: center;
   margin-top: 70px;
+}
+
+.noProducts {
+  width: 100%;
+  text-align: center;
+  margin-top: 200px;
+  font-size: 25px;
 }

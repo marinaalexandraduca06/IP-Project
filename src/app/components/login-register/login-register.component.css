@@ -1,6 +1,9 @@
 .main {
     text-align: center;
-    margin-top: 100px;
+    border-radius: 10px;
+    background: #d9ddef;
+    padding: 80px;
+    margin: 100px 20%;
 }
 
 .error-message {
@@ -12,4 +15,10 @@
 
 .form-input {
     margin-bottom: 20px
+}
+
+.confirm-button {
+    width: 100%;
+    text-align: center;
+    margin-top: 70px;
 }
