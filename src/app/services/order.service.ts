@@ -26,7 +26,7 @@ export class OrderService {
   public async updateOrder(products: OrderModel, orderId: string): Promise<OrderModel> {
     const httpOptions = {
       headers: new HttpHeaders({
-        'userId': this.authService.user.getValue()._id
+        'userId': this.authService.loggedIn ? this.authService.user.getValue()._id : ''
       })
     };
     const url = `${CONFIG.apiBase}/orders/${orderId}`;
@@ -37,7 +37,7 @@ export class OrderService {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
-        'userId': this.authService.user.getValue()._id
+        'userId': this.authService.loggedIn ? this.authService.user.getValue()._id : ''
       })
     };
     const url = `${CONFIG.apiBase}/orders`;
@@ -46,9 +46,10 @@ export class OrderService {
     let order: OrderModel;
     if (unfinishedOrders.length) {
       order = unfinishedOrders[0];
+      const orderUrl = `${CONFIG.apiBase}/orders/${order._id}`;
+      return (await this.httpClient.get(orderUrl, httpOptions).toPromise())['result'];
     }
-    const orderUrl = `${CONFIG.apiBase}/orders/${order._id}`;
-    return (await this.httpClient.get(orderUrl, httpOptions).toPromise())['result'];
+    return;
   }
 
   public async addItem(product: ProductModel): Promise<void> {
