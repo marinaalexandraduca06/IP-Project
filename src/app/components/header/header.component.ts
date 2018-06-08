@@ -29,5 +29,6 @@ export class HeaderComponent implements OnInit {
 
   public doSignOut(): void {
     this.authService.logout();
+    this.router.navigateByUrl(`/product-management`);
   }
 }

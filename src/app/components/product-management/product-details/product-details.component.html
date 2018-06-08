@@ -29,7 +29,7 @@
         <span class="product-property">Store:</span>
         <span class="product-value">{{ product?.store?.firstName }} {{ product?.store?.lastName }}</span>
       </div>
-      <a *ngIf="isLogged" class="button primary-button add-to-cart-button" (click)="addProductToCart()">Add to cart</a>
+      <a *ngIf="user" class="button primary-button add-to-cart-button" (click)="addProductToCart()">Add to cart</a>
     </div>
   </div>
   <div class="product-description-container">

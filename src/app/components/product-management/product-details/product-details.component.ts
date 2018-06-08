@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
 import { ProductService, OrderService, AuthService } from '../../../services/index';
-import { ProductModel } from '../../../models/index';
+import { ProductModel, UserModel } from '../../../models/index';
 
 @Component({
   selector: 'ip-product-details',
@@ -11,7 +11,7 @@ import { ProductModel } from '../../../models/index';
 })
 export class ProductDetailsComponent implements OnInit {
   public product: ProductModel;
-  public isLogged: boolean;
+  public user: UserModel;
 
   constructor(
     private productService: ProductService,
@@ -22,20 +22,9 @@ export class ProductDetailsComponent implements OnInit {
   ) {}
 
   async ngOnInit(): Promise<void> {
-    this.isLogged = this.authService.loggedIn();
+    this.authService.user.subscribe((user) => this.user = user);
     const productId = this.route.snapshot.params.id;
     this.product = await this.productService.getProduct(productId);
-    // this.product = new ProductModel({
-    //   _id: '1',
-    //   name: 'Name',
-    //   description: 'Description',
-    //   price: 5,
-    //   store: 'Store',
-    //   availableQuantity: 100,
-    //   category: 'Category',
-    //   imageURL:
-    //     'http://www.daytonaradio.com/wkro/wp-content/uploads/sites/4/2015/07/ice-cream.jpg'
-    // });
   }
 
   public goBack(): void {

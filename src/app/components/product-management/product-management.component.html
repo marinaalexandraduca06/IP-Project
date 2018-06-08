@@ -1,6 +1,6 @@
 <div class="nav-bar">
   <span class="nav-bar-element" routerLink="product-list" routerLinkActive="active">Product list</span>
-  <span class="nav-bar-element" routerLink="cart" routerLinkActive="active">Cart</span>
-  <span class="nav-bar-element" routerLink="create-product" routerLinkActive="active">Create product</span>
+  <span class="nav-bar-element" routerLink="cart" routerLinkActive="active" *ngIf="user">Cart</span>
+  <span class="nav-bar-element" routerLink="create-product" routerLinkActive="active" *ngIf="user?.type === 'SELLER'">Create product</span>
 </div>
 <router-outlet></router-outlet>
