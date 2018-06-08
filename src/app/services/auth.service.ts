@@ -68,7 +68,8 @@ export class AuthService {
         _id: tempUser._id,
         firstName: tempUser.firstName,
         lastName: tempUser.lastName,
-        email: tempUser.email
+        email: tempUser.email,
+        type: tempUser.type
       }
       ));
     }

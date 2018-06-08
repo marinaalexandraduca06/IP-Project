@@ -7,6 +7,7 @@ export class UserModel {
   public city: string;
   public phone: string;
   public address: string;
+  public type: string;
   private password: string;
 
   constructor(fields?: {
@@ -18,7 +19,8 @@ export class UserModel {
     city?: string,
     phone?: string,
     address?: string,
-    password?: string
+    password?: string,
+    type?: string
   }) {
     Object.assign(this, fields);
   }
